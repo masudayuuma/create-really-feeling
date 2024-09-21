@@ -1,0 +1,16 @@
+services:
+  demo-api:
+    build:
+      context: ./back
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file: 
+      - .env
+    volumes:
+      - ./back:/app
+    networks:
+      - external
+networks:
+  external:
+    driver: bridge
